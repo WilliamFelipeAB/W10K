@@ -1,0 +1,106 @@
+# 1.Crie uma função isVowel :: Char -> Bool que verifique se um caracter é uma vogal ou não.
+from itertools import takewhile
+from this import s
+
+
+def isVowel(c): return c.lower() in {'a', 'e', 'i', 'o', 'u'}
+
+
+# 2.Escreva uma função addComma, que adicione uma vírgula no final de cada string contida numa lista.
+def addComma(ls): return list(map(lambda x: x + ',', ls))
+
+
+# 3.Crie uma função htmlListItems :: [String] -> [String], que receba uma lista de strings e retorne outra lista contendo as strings formatadas como itens de lista em HTML. Resolva este exercício COM e SEM funções anônimas (lambda).
+
+def htmlListItems_com(ls): return list(map(lambda x: "<LI>" + x + "</LI>", ls))
+
+
+def htmlListItems_sem_aux(str): return "<LI>" + str + "</LI>"
+
+
+def htmlListItems_sem(ls): return list(map(htmlListItems_sem_aux, ls))
+
+
+# 4.Defina uma função que receba uma string e produza outra retirando as vogais, conforme os exemplos abaixo. Resolva este exercício COM e SEM funções anônimas (lambda).
+
+def remove_com(str): return ''.join(list(filter(lambda x: isVowel(x) == False, str)))
+
+
+def remove_sem_aux(c): return isVowel(c) == False
+
+
+def remove_sem(str): return ''.join(list(filter(remove_sem_aux, str)))
+
+
+# 5.Defina uma função que receba uma string, possivelmente contendo espaços, e que retorne outra string substituindo os demais caracteres por '-', mas mantendo os espaços. Resolva este exercício COM e SEM funções anônimas (lambda).
+
+def codifica_com(str): return "".join(list(map(lambda x: ' ' if (x == ' ') else '-', str)))
+
+
+def codifica_sem_aux(c): return ' ' if (c == ' ') else '-'
+
+
+def codifica_sem(str): return ''.join(map(codifica_sem_aux, str))
+
+
+# 6.Escreva uma função firstName :: String -> String que, dado o nome completo de uma pessoa, obtenha seu primeiro nome. Suponha que cada parte do nome seja separada por um espaço e que não existam espaços no início ou fim do nome.
+
+def firstName(str): return ''.join(takewhile(lambda x: x != ' ', str))
+
+# 7.Escreva uma função isInt :: String -> Bool que verifique se uma dada string só contém dígitos de 0 a 9.
+
+def isInt(str): return 0 == len(list(filter(lambda x: x < '0' or x > '9', str)))
+
+# 8.Escreva uma função lastName :: String -> String que, dado o nome completo de uma pessoa, obtenha seu último sobrenome. Suponha que cada parte do nome seja separada por um espaço e que não existam espaços no início ou fim do nome.
+
+def lastName(str): return ''.join(reversed(firstName(reversed(str))))
+
+# 9.Escreva uma função userName :: String -> String que, dado o nome completo de uma pessoa, crie um nome de usuário (login) da pessoa, formado por: primeira letra do nome seguida do sobrenome, tudo em minúsculas.
+
+def userName(str): return ''.join(str[0]+lastName(str)).lower()
+
+# 10.Escreva uma função encodeName :: String -> String que substitua vogais em uma string, conforme o esquema a seguir: a = 4, e = 3, i = 2, o = 1, u = 0.
+
+def encodeName_aux(c):
+    if c == 'a':
+        return '4'
+    elif c == 'e':
+        return '3'
+    elif c == 'i':
+        return '2'
+    elif c == 'o':
+        return '1'
+    elif c == 'u':
+        return '0'
+    else:
+        return c
+
+def encodeName(str): return ''.join(list(map(lambda x: encodeName_aux(x), str)))
+
+# 11.Escreva uma função betterEncodeName :: String -> String que substitua vogais em uma string, conforme este esquema: a = 4, e = 3, i = 1, o = 0, u = 00.
+
+def betterEncodeName_aux(c):
+    if c == 'a':
+        return '4'
+    elif c == 'e':
+        return '3'
+    elif c == 'i':
+        return '1'
+    elif c == 'o':
+        return '0'
+    elif c == 'u':
+        return "00"
+    else:
+        return c
+
+def betterEncodeName(str): return ''.join(list(map(lambda x: betterEncodeName_aux(x), str)))
+
+# 12.Dada uma lista de strings, produzir outra lista com strings de 10 caracteres, usando o seguinte esquema: strings de entrada com mais de 10 caracteres são truncadas, strings com até 10 caracteres são completadas com '.' até ficarem com 10 caracteres.
+
+def funcstr_aux(s):
+    if len(s) == 10:
+        return s
+    else:
+        return funcstr_aux(s+'.')
+
+def funcstr(str): return list(map(lambda s: s[0:10] if len(s) >= 10 else funcstr_aux(s), str))
