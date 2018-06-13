@@ -1,0 +1,39 @@
+.dialog-pane {
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: black;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane:header .header-panel .label {
+    -fx-font-weight: bold;
+    -fx-font-size: 2em;
+}
+
+.button {
+    -fx-background-color: black;
+    -fx-text-fill: greenyellow;
+    -fx-font-weight: bold;
+}
+
+.button:hover{
+    -fx-background-color: greenyellow, greenyellow, black, black;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 8px, 8px, 6px, 6px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: greenyellow;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+.label{
+    -fx-font-weight: bold;
+}
