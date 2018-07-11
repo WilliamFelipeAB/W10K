@@ -1,5 +1,13 @@
-tenismesa(N,J):-
-	J is N-1.
+import java.util.Scanner;
+
+public class Extras9 {
+    public static void main(String[] args) {
+        int N = 37;
+        int J = N-1;
+        System.out.println("Serão jogados" + J + " jogos entre os " + N + " jogadores ");
+    }
+}
+
 /*
 Questão 6. O Centro Acadêmico da escola está organizando um torneio de tenis de mesa entre os
 alunos, em que 37 meninos e meninas se inscreveram. O torneio vai ser feito em turnos de jogos
@@ -14,6 +22,4 @@ declarado campeão (ou campeã) do torneio. Quantos jogos serão jogados até o 
 (D) 38
 (E) 74
 
-consulta:
-?- tenismesa(37,J).
 */

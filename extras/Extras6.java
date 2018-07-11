@@ -1,5 +1,12 @@
-mesas(M, E) :-
-	E is 4*M+2.
+import java.util.Scanner;
+
+public class Extras6 {
+    public static void main(String[] args) {
+        int M = 4;
+        int E = 4*M+2;
+        System.out.println("A quantidade de estudantes que podem usar " + M + " mesas é: " + E);
+    }
+}
 
 /*
 Questão 4. Uma nova sala de aula foi inaugurada, para estudo e exercícios em grupo. A sala de aula
@@ -13,6 +20,4 @@ Quantos estudantes podem usar quatro mesas colocadas juntas como mostrado?
 (D) 20
 (E) 24
 
-consulta:
-?- mesas(4,E).
 */
